@@ -7,5 +7,5 @@ def generic_api_call(config: dict, params: dict) -> dict:
     payload = params.get("payload", {})
 
     forticare = MakeRestApiCall(config=config)
-    response = forticare.make_request(endpoint=endpoint, method=method, json_data = payload)
+    response = forticare.make_request(endpoint=endpoint, method=method, headers=forticare.headers, json_data = payload)
     return response
