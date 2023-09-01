@@ -67,12 +67,11 @@ For the procedure to configure this connector, follow the steps below.
 3. Open the **FortiCloud Asset Management** connector from the content Hub
 4. Fill in the required fields for the connector
 
+For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
 
 ## Minimum Permissions Required
-- Not applicable
+- Read API permission to the Asset Management Portal
 
-## Configuring the connector
-For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
 ### Configuration parameters
 <p>In FortiSOAR&trade;, on the Connectors page, click the <strong>FortiCloud Asset Management</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations</strong> tab enter the required configuration details:</p>
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Server URL</td><td>The server url SOAR will use to communicate with.
