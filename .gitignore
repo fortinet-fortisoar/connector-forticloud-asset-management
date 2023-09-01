@@ -165,3 +165,4 @@ cython_debug/
 /.github/
 /.fortisoar/
 /forticloud-asset-management.tgz
+/autodocs.py
