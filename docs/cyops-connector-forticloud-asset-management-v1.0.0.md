@@ -27,39 +27,39 @@ For the procedure to configure this connector, follow the steps below.
 
 1. Login to https://support.fortinet.com.
 2. Click **Services**, then under "Assets & Accounts" click **IAM**.
-![IAM Option](/images/iam.png)
+![IAM Option](images/iam.png)
 
 3. On the left pane, click **Permission Profiles**
 
-    ![Permission Profiles](/images/permission_profiles.png)
+    ![Permission Profiles](images/permission_profiles.png)
 
 5. Click **Add New**
 
-    ![Add New Button](/images/add_new.png)
+    ![Add New Button](images/add_new.png)
 
 7. Click **Add Portal**
 
-    ![Add Portal Button](/images/add_portal.png)
+    ![Add Portal Button](images/add_portal.png)
 
 8. Check the box to the left of **Asset Management** and click **Add**
-![Add Asset management permission](/images/check_asset_management.png)
+![Add Asset management permission](images/check_asset_management.png)
 
 9. Provide a **Permission Profile Name**. This example will use `FortiSOAR Asset Management`
 10. Toggle the **Access** slider to enable the portal, then click **Read/Write** option, then click the **Submit** button to save
-![Add Asset management permission](/images/enable_portal.png)
+![Add Asset management permission](images/enable_portal.png)
 
 11. Navigate to the Users Section as seen from the image on step 3
 12. Click **Add New > API User** 
 
-    ![Add API User](/images/add_api_user.png)
+    ![Add API User](images/add_api_user.png)
 14. Select the **Permission Profile** `FortiSOAR Asset Management` , then click Next
-![Assign Profile](/images/assign_profile.png)
+![Assign Profile](images/assign_profile.png)
 15. Click Confirm 
 16. Download the credentials for the api user. These are required to configure the connector
 
-    ![img.png](/images/download_creds.png)
+    ![img.png](images/download_creds.png)
 17. Provide a password to encrypt the file, then click **Proceed**
-![img](/images/protect_credentials.png)
+![img](images/protect_credentials.png)
 
 ## Configure the Connector
 1. Locate the downloaded credentials for the API User
