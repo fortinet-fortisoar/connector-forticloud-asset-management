@@ -2,6 +2,9 @@
 
 For the procedure to configure a connector, follow the steps below. 
 
+> **Note**
+> In order to perform these steps, you must have a user account with the correct priveledges. If you don't see IAM, contact your account owner.  https://docs.fortinet.com/document/forticloud/23.3.0/identity-access-management-iam/670315/requirements
+
 1. Login to https://support.fortinet.com.
 2. Click **Services**, then under "Assets & Accounts" click **IAM**.
 ![IAM Option](/docs/images/iam.png)
