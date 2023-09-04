@@ -1,0 +1,877 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - FortiCloud Asset Management - 1.0.0",
+      "description": "Sample playbooks for \"FortiCloud Asset Management\" connector. If you use any of the sample playbooks in your environment, ensure that you clone those playbooks to a new collection, since this collection gets deleted during connector upgrade and delete.",
+      "visible": true,
+      "image": null,
+      "uuid": "50aec0ce-e0ca-40a6-8cad-78893adef10c",
+      "id": 67,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Product Details",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns product detailed information, including active support coverage and associated licenses",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693321958,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d8f7f3f9-b09e-4d17-967f-d24ef6b030e1",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Product Details",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "serial_number": "FGT60FTK21066590"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "product_details",
+                "operationTitle": "Get Product Details",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "180",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "58e1c687-bf52-4f2a-a8a4-292eca507d22"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "d8f7f3f9-b09e-4d17-967f-d24ef6b030e1"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Register License",
+              "targetStep": "/api/3/workflow_steps/58e1c687-bf52-4f2a-a8a4-292eca507d22",
+              "sourceStep": "/api/3/workflow_steps/d8f7f3f9-b09e-4d17-967f-d24ef6b030e1",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "4a098a6b-e321-4fdd-9432-e9090072c41d"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "1c3b3107-df07-40b4-a898-953d289ad3fa",
+          "id": 802,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Register Service",
+          "aliasName": null,
+          "tag": null,
+          "description": "Register a subscription contract (e.g. VM-S) to generate serial number Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693323305,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/8aea598a-1420-4d83-a16e-0db78e04c042",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Register Service",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "description": "",
+                  "is_government": false,
+                  "additional_info": "",
+                  "contract_number": ""
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "register_service",
+                "operationTitle": "Register Service",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "8fc18cd1-51bc-4176-aad0-a7eb9727db2b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "8aea598a-1420-4d83-a16e-0db78e04c042"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/8fc18cd1-51bc-4176-aad0-a7eb9727db2b",
+              "sourceStep": "/api/3/workflow_steps/8aea598a-1420-4d83-a16e-0db78e04c042",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "7c158778-1895-44fe-968b-17cd311c4a5b"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "3975266d-e8a3-4d18-be4f-38506a873123",
+          "id": 806,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Register License",
+          "aliasName": null,
+          "tag": null,
+          "description": "Used for registering a license. Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693322645,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d205b2ab-5b88-4f47-81b7-9f21fc2832e9",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Register License",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "description": "",
+                  "is_government": false,
+                  "serial_number": "FSRVMPTMXXXXXX",
+                  "additional_info": "",
+                  "license_registration_code": "PWKDK-6WC24-XXXXX-XXXXX-XXXXX"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "register_license",
+                "operationTitle": "Register License",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "180",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "6a46e22e-8524-4026-8303-962de153f141"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "d205b2ab-5b88-4f47-81b7-9f21fc2832e9"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Register License",
+              "targetStep": "/api/3/workflow_steps/6a46e22e-8524-4026-8303-962de153f141",
+              "sourceStep": "/api/3/workflow_steps/d205b2ab-5b88-4f47-81b7-9f21fc2832e9",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "5f5dc23e-2129-4e30-b63a-d1a120ba4621"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "41b54fcc-a469-4a48-b408-c083d52cc752",
+          "id": 798,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Register Product",
+          "aliasName": null,
+          "tag": null,
+          "description": "Register products/contracts in one request. Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693321724,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/fcd957bc-ad6a-49c5-ab21-5f09a43aa31c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Register Product",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "cloud_key": "",
+                  "description": "",
+                  "is_government": false,
+                  "serial_number": "FGTXXXXXXXX",
+                  "additional_info": "",
+                  "asset_group_ids": "",
+                  "contract_number": "",
+                  "replaced_serial_number": ""
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "register_product",
+                "operationTitle": "Register Product",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3c39df4f-c3a4-4312-b4a0-a465701d37b4"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "fcd957bc-ad6a-49c5-ab21-5f09a43aa31c"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/3c39df4f-c3a4-4312-b4a0-a465701d37b4",
+              "sourceStep": "/api/3/workflow_steps/fcd957bc-ad6a-49c5-ab21-5f09a43aa31c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "eff0653a-fe4c-4145-a25a-8600f4d31c3c"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "516b6f2b-7713-4f5f-998d-030b27a0f8e7",
+          "id": 800,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Decommisson Product",
+          "aliasName": null,
+          "tag": null,
+          "description": "Decommission one or more products",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693323040,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/e40bfa67-426a-4e76-a8f4-3df0584a7216",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Decommisson Product",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "serial_numbers": "FSRCLDTMXXXXXXXX"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "decommission_product",
+                "operationTitle": "Decommission Product",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "0ebbc75e-cd30-4695-9713-0b8e09698980"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "e40bfa67-426a-4e76-a8f4-3df0584a7216"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/0ebbc75e-cd30-4695-9713-0b8e09698980",
+              "sourceStep": "/api/3/workflow_steps/e40bfa67-426a-4e76-a8f4-3df0584a7216",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "02637c5e-9002-4dda-b06a-a8fa386a89d7"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "7078608d-ac5f-4906-a1b8-5951d146c760",
+          "id": 804,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "List Assets",
+          "aliasName": null,
+          "tag": null,
+          "description": "Returns product list based on product SN search pattern or support package expiration date",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693321740,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/8e68168a-175c-4a8a-97ca-d2caa82a3a46",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "List assets",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "expire_before": "",
+                  "serial_number": "FG"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "list_assets",
+                "operationTitle": "List Assets",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "f8deca72-a17c-4833-b87b-6eacfd0dd447"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "8e68168a-175c-4a8a-97ca-d2caa82a3a46"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/f8deca72-a17c-4833-b87b-6eacfd0dd447",
+              "sourceStep": "/api/3/workflow_steps/8e68168a-175c-4a8a-97ca-d2caa82a3a46",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "a6d594f0-7f59-412a-9c39-52fcf357370e"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "7bb632f1-1a6d-472e-981b-27df4537a1c2",
+          "id": 799,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Generic API Call",
+          "aliasName": null,
+          "tag": null,
+          "description": "This action takes a Method, Endpoint, and Payload as input and makes the api call to FortiCloud",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693323400,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/23c19254-1ffe-4265-93e2-64c907415bd2",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Generic API Call",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "method": "POST",
+                  "payload": "{}",
+                  "endpoint": "/folders/list"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "generic_api_call",
+                "operationTitle": "Generic API Call",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "9e0a78ea-2f3b-4fb3-a537-669805db4779"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "23c19254-1ffe-4265-93e2-64c907415bd2"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/9e0a78ea-2f3b-4fb3-a537-669805db4779",
+              "sourceStep": "/api/3/workflow_steps/23c19254-1ffe-4265-93e2-64c907415bd2",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "63247960-0996-4c47-89c4-3c218c2c62d0"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "7d0c877f-f0b9-45e8-8a37-c126fecbd036",
+          "id": 807,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Product Description",
+          "aliasName": null,
+          "tag": null,
+          "description": "Update description of a product using serial number. Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693322016,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d4c27b48-d1b5-41f2-b5af-983260deebc6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "d4c27b48-d1b5-41f2-b5af-983260deebc6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Update Description",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "description": "Corportate Fortigate",
+                  "serial_number": "FGT60FTK21066590"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "update_description",
+                "operationTitle": "Update Description",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "180",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "3c4a82c4-6c74-4c0e-b3fb-332bffffaa56"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Register License",
+              "targetStep": "/api/3/workflow_steps/3c4a82c4-6c74-4c0e-b3fb-332bffffaa56",
+              "sourceStep": "/api/3/workflow_steps/d4c27b48-d1b5-41f2-b5af-983260deebc6",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "e7f911e9-9b09-4cd0-92cc-11d462bae3d5"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b7637ee2-f514-430e-99d2-6e6f138adcc4",
+          "id": 801,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Download License",
+          "aliasName": null,
+          "tag": null,
+          "description": "Used for license key file download Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693323142,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/041854c0-4a59-48cd-9cd8-6c0e1d7e62dc",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Download License",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "serial_number": "FSRVMPTM23000011"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "download_license",
+                "operationTitle": "Download License",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "7ce5f57e-9076-42ef-a89c-7330ad0bc217"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "041854c0-4a59-48cd-9cd8-6c0e1d7e62dc"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/7ce5f57e-9076-42ef-a89c-7330ad0bc217",
+              "sourceStep": "/api/3/workflow_steps/041854c0-4a59-48cd-9cd8-6c0e1d7e62dc",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "ff1dcffd-62cd-4a11-969b-bc13254936b4"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "b7ad2f9b-d939-4687-9c1f-3a1214e81a7f",
+          "id": 805,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Update Location",
+          "aliasName": null,
+          "tag": null,
+          "description": "Update Location of a product using serial number. Required permission: ReadWrite/Admin",
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1693322886,
+          "collection": "/api/3/workflow_collections/50aec0ce-e0ca-40a6-8cad-78893adef10c",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/c69920f3-f5d2-46dd-ba87-39d0cf8e4078",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Register Product",
+              "description": null,
+              "arguments": {
+                "name": "FortiCloud Asset Management",
+                "config": "34ff042c-902f-4827-b2e0-0617ad60fe03",
+                "params": {
+                  "fax": "",
+                  "city": "Sunnyvale",
+                  "email": "",
+                  "phone": "",
+                  "address": "899 Kifer Rd",
+                  "company": "",
+                  "postalCode": "94086",
+                  "countryCode": "US",
+                  "serial_number": "FGT60FTKXXXXXXX",
+                  "stateOrProvince": "CA"
+                },
+                "version": "1.0.0",
+                "connector": "forticloud-asset-management",
+                "operation": "update_location",
+                "operationTitle": "Update Location",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "200",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "301a0a52-a013-41ba-bbaa-9d41bed76237"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "status": null,
+              "top": "40",
+              "left": "40",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "c69920f3-f5d2-46dd-ba87-39d0cf8e4078"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> List assets",
+              "targetStep": "/api/3/workflow_steps/301a0a52-a013-41ba-bbaa-9d41bed76237",
+              "sourceStep": "/api/3/workflow_steps/c69920f3-f5d2-46dd-ba87-39d0cf8e4078",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "a5e7f708-4db2-49f8-90a0-801d9db1f0c2"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "uuid": "d29342df-1d93-45fe-8b10-f5463254e2bd",
+          "id": 803,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}

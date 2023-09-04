@@ -1,0 +1,582 @@
+{
+  "name": "forticloud-asset-management",
+  "label": "FortiCloud Asset Management",
+  "version": "1.0.0",
+  "description": "Asset Management is an easy-to-use portal to register, organize and view all Fortinet products and services in FortiCloud. New products, licenses, or contracts can be registered and managed with the Asset Management portal. Registered products are displayed in the Product List as well as a customizable folder structure called My Assets.",
+  "publisher": "Fortinet CSE",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "category": "",
+  "icon_small_name": "asset_small.png",
+  "icon_large_name": "asset.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "name": "server_url",
+        "title": "Server URL",
+        "type": "text",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "value": "https://support.fortinet.com/ES/api/registration/v3",
+        "description": "The server url SOAR will use to communicate with."
+      },
+      {
+        "name": "api_id",
+        "title": "API ID",
+        "type": "text",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "placeholder": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "description": "The API ID is the username for IAM user obtained from Forticloud. It is in UUID format, ie XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+      },
+      {
+        "name": "password",
+        "title": "Password",
+        "type": "password",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "description": "Provide the password for IAM user obtained from Forticloud. "
+      },
+      {
+        "name": "client_id",
+        "title": "Client ID",
+        "type": "text",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "placeholder": "assetmanagement",
+        "value": "assetmanagement",
+        "description": "Provide the Client ID for Forticloud site, ie assetmanagement"
+      },
+      {
+        "name": "verify_ssl",
+        "title": "Verify SSL",
+        "type": "checkbox",
+        "editable": true,
+        "visible": true,
+        "required": true,
+        "placeholder": true,
+        "value": false,
+        "description": "Check the box to have the request verify SSL"
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "list_assets",
+      "title": "List Assets",
+      "annotation": "list_assets",
+      "description": "Returns product list based on product SN search pattern or support package expiration date",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "FGT90D1234567890",
+          "tooltip": "* for wildcard search. example: FGT90D1234567890",
+          "description": "Serial number or serial number search pattern"
+        },
+        {
+          "name": "expire_before",
+          "title": "Expire Before",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "2019-01-20T10:11:11-8:00",
+          "description": " Date time in ISO 8601 format"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "register_product",
+      "title": "Register Product",
+      "annotation": "register_product",
+      "description": "Register products/contracts in one request. Required permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "* for wildcard search. example: FGT90D1234567890",
+          "description": "Serial number or serial number search pattern"
+        },
+        {
+          "name": "contract_number",
+          "title": "Contract Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: 2121DJ8902",
+          "description": "Register contract with product"
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: Backup device",
+          "description": "Set product description during registration process"
+        },
+        {
+          "name": "asset_group_ids",
+          "title": "Asset Group Ids",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "Register product under certain asset group, multiple asset group allowed, eg [6,12,18]",
+          "description": "Register product under certain asset group, multiple asset group allowed"
+        },
+        {
+          "name": "replaced_serial_number",
+          "title": "Replaced Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: FGT90D9876543210",
+          "description": "Used for product RMA registration for replaced product serial number"
+        },
+        {
+          "name": "additional_info",
+          "title": "Additional Info",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: IP: 121.24.56.198",
+          "description": "Store extra info for certain product registration, for example system ID, IP address etc."
+        },
+        {
+          "name": "cloud_key",
+          "title": "Cloud Key",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: 80X4LSN3",
+          "description": "Cloud key to be used in product registration"
+        },
+        {
+          "name": "is_government",
+          "title": "Is Government",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "tooltip": "example: true",
+          "description": "Whether the product will be used for government or not",
+          "value": false
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_description",
+      "title": "Update Description",
+      "annotation": "update_description",
+      "description": "Update description of a product using serial number. Required permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "",
+          "tooltip": "example: FGT90D1234567890",
+          "description": "Product serial number"
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "example: New description for the product",
+          "description": "Description for product"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "product_details",
+      "title": "Get Product Details",
+      "annotation": "product_details",
+      "description": "Returns product detailed information, including active support coverage and associated licenses",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "example: FGT90D1234567890",
+          "description": "Serial number"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "update_location",
+      "title": "Update Location",
+      "annotation": "update_location",
+      "description": "Update Location of a product using serial number. Required permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "",
+          "tooltip": "example: FGT90D1234567890",
+          "description": "Product serial number"
+        },
+        {
+          "name": "company",
+          "title": "Company",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "Test Company Inc",
+          "description": "Company name"
+        },
+        {
+          "name": "address",
+          "title": "Address",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "1234 Wall Street",
+          "description": "Address of the location"
+        },
+        {
+          "name": "city",
+          "title": "City",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "Sunnyvale",
+          "description": "City name"
+        },
+        {
+          "name": "stateOrProvince",
+          "title": "State/Province",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "CA",
+          "description": "State or province name "
+        },
+        {
+          "name": "countryCode",
+          "title": "Country",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Two letter country code"
+        },
+        {
+          "name": "postalCode",
+          "title": "Postal Code",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": 34510,
+          "description": "Zip/postal code of the location"
+        },
+        {
+          "name": "email",
+          "title": "Email",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "test@testcompany.com",
+          "description": "Email address"
+        },
+        {
+          "name": "phone",
+          "title": "Phone",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "+13151231234",
+          "tooltip": "Phone must follow this format (without brackets): \"+(country code)(space)(number)\"",
+          "description": "Phone number"
+        },
+        {
+          "name": "fax",
+          "title": "Fax",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "+1 3151231235",
+          "tooltip": "Fax must follow this format (without brackets): \"+(country code)(space)(number)\"",
+          "description": "Fax number"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "decommission_product",
+      "title": "Decommission Product",
+      "annotation": "decommission_product",
+      "description": "Decommission one or more products",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_numbers",
+          "title": "Serial Numbers",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "[\"FGTXXX\", \"FGTXXX\"] or \"FGTXXX\", \"FGTXXX\"",
+          "tooltip": "[\"FGTXXX\", \"FGTXXX\"] or \"FGTXXX\", \"FGTXXX\" ",
+          "description": "Decommission products using serial number"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "register_license",
+      "title": "Register License",
+      "annotation": "register_license",
+      "description": "Used for registering a license.\nRequired permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "description": "Optional product serial number, if this field is not empty, the license will be registered under it, otherwise a virtual product will be created for the registered license (if applicable)"
+        },
+        {
+          "name": "license_registration_code",
+          "title": "License Registration Code",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "example: K06V2-U795H-9PKR7-2TXNM-V8GL6B",
+          "description": "License registration code"
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "example: Backup device",
+          "description": "Optional, the description for the new product"
+        },
+        {
+          "name": "additional_info",
+          "title": "Additional Info",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "example: 121.24.56.198",
+          "description": "Store extra info for certain product registration, for example system ID, IP address etc."
+        },
+        {
+          "name": "is_government",
+          "title": "Is Government",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Product will be used for government or not"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "download_license",
+      "title": "Download License",
+      "annotation": "download_license",
+      "description": "Used for license key file download\nRequired permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "serial_number",
+          "title": "Serial Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "placeholder": "example: FGT90D1234567890",
+          "description": "Product serial number"
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "generic_api_call",
+      "title": "Generic API Call",
+      "annotation": "generic_api_call",
+      "description": "This action takes a Method, Endpoint, and Payload as input and makes the api call to FortiCloud",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "method",
+          "title": "Method",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "value": "GET",
+          "description": "The HTTP Method to use",
+          "options": [
+            "DELETE",
+            "GET",
+            "PATCH",
+            "POST",
+            "PUT"
+          ]
+        },
+        {
+          "name": "endpoint",
+          "title": "Endpoint",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Provide the endpoint for the action, ie /products/list,  /products/register etc. The full list of available actions are accessible from FNDN at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product",
+          "description": "Provide the endpoint for the action, ie /products/list,  /products/register etc. The full list of available actions are accessible from FNDN at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product"
+        },
+        {
+          "name": "payload",
+          "title": "Payload",
+          "type": "json",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": {},
+          "value": {},
+          "description": "The payload needed for the call. Use empty brackets if there is no payload."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "operation": "register_service",
+      "title": "Register Service",
+      "annotation": "register_service",
+      "description": "Register a subscription contract (e.g. VM-S) to generate serial number\nRequired permission: ReadWrite/Admin",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "contract_number",
+          "title": "Contract Number",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "description": "Optional product serial number, if this field is not empty, the license will be registered under it, otherwise a virtual product will be created for the registered license (if applicable)"
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "example: Backup device",
+          "description": "Optional, the description for the new product"
+        },
+        {
+          "name": "additional_info",
+          "title": "Additional Info",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "placeholder": "example: 121.24.56.198",
+          "description": "Store extra info for certain product registration, for example system ID, IP address etc."
+        },
+        {
+          "name": "is_government",
+          "title": "Is Government",
+          "type": "checkbox",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "value": false,
+          "description": "Product will be used for government or not"
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}

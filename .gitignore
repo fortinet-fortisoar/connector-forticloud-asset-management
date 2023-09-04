@@ -162,3 +162,7 @@ cython_debug/
 # OS generated files #
 ######################
 .DS_Store
+/.github/
+/.fortisoar/
+/forticloud-asset-management.tgz
+/autodocs.py
