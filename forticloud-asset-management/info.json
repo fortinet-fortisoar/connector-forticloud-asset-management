@@ -6,7 +6,7 @@
   "publisher": "Fortinet CSE",
   "cs_approved": false,
   "cs_compatible": true,
-  "category": "",
+  "category": "Asset Management",
   "icon_small_name": "asset_small.png",
   "icon_large_name": "asset.png",
   "help_online": "",
@@ -19,7 +19,7 @@
         "editable": true,
         "visible": true,
         "required": true,
-        "value": "https://support.fortinet.com/ES/api/registration/v3",
+        "value": "https://support.fortinet.com",
         "description": "The server url SOAR will use to communicate with."
       },
       {
