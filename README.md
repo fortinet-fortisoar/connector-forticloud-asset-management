@@ -1,1 +1,0 @@
-# connector-forticloud-asset-management
