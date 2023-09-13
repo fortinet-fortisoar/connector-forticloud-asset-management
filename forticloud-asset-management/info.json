@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "Asset Management is an easy-to-use portal to register, organize and view all Fortinet products and services in FortiCloud. New products, licenses, or contracts can be registered and managed with the Asset Management portal. Registered products are displayed in the Product List as well as a customizable folder structure called My Assets.",
   "publisher": "Fortinet CSE",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
-  "category": "",
+  "category": "Asset Management",
   "icon_small_name": "asset_small.png",
   "icon_large_name": "asset.png",
   "help_online": "",
@@ -19,7 +19,7 @@
         "editable": true,
         "visible": true,
         "required": true,
-        "value": "https://support.fortinet.com/ES/api/registration/v3",
+        "value": "https://support.fortinet.com",
         "description": "The server url SOAR will use to communicate with."
       },
       {

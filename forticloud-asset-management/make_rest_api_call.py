@@ -1,3 +1,9 @@
+""" Copyright start
+  Copyright (C) 2008 - 2023 Fortinet Inc.
+  All rights reserved.
+  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+  Copyright end """
+
 import requests
 import time
 import json
@@ -20,7 +26,9 @@ class MakeRestApiCall:
     def __init__(self, config):
         self.server_url = config.get('server_url', '').strip().strip('/')
         if not self.server_url.startswith('http') or not self.server_url.startswith('https'):
-            self.server_url = 'https://' + self.server_url
+            self.server_url = 'https://{0}/ES/api/registration/v3'.format(self.server_url)
+        else:
+            self.server_url = url + '/ES/api/registration/v3'
         self.api_id = config.get("api_id")
         self.password = config.get("password")
         self.client_id = config.get("client_id")
