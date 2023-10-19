@@ -59,7 +59,6 @@
         "editable": true,
         "visible": true,
         "required": true,
-        "placeholder": true,
         "value": false,
         "description": "Check the box to have the request verify SSL"
       }
@@ -77,25 +76,45 @@
       "enabled": true,
       "parameters": [
         {
-          "name": "serial_number",
-          "title": "Serial Number",
-          "type": "text",
+          "title": "Filter",
+          "description": "Specify the filter value using which you want to filter assets retrieved by this operation.",
+          "required": true,
           "editable": true,
           "visible": true,
-          "required": false,
-          "placeholder": "FGT90D1234567890",
-          "tooltip": "* for wildcard search. example: FGT90D1234567890",
-          "description": "Serial number or serial number search pattern"
-        },
-        {
-          "name": "expire_before",
-          "title": "Expire Before",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": false,
-          "placeholder": "2019-01-20T10:11:11-8:00",
-          "description": " Date time in ISO 8601 format"
+          "type": "select",
+          "name": "filter",
+          "tooltip": "Specify the filter value using which you want to filter assets retrieved by this operation.",
+          "options": [
+            "Serial Number",
+            "Expire Before"
+          ],
+          "onchange": {
+            "Serial Number": [
+              {
+                "name": "serial_number",
+                "title": "Serial Number",
+                "type": "text",
+                "editable": true,
+                "visible": true,
+                "required": true,
+                "placeholder": "FGT90D1234567890",
+                "tooltip": "* for wildcard search. example: FGT90D1234567890",
+                "description": "Serial number or serial number search pattern"
+              }
+            ],
+            "Expire Before": [
+              {
+                "name": "expire_before",
+                "title": "Expire Before",
+                "type": "text",
+                "editable": true,
+                "visible": true,
+                "required": true,
+                "placeholder": "2019-01-20T10:11:11-8:00",
+                "description": " Date time in ISO 8601 format"
+              }
+            ]
+          }
         }
       ],
       "output_schema": {}
