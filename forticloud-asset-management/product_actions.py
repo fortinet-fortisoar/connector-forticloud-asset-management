@@ -11,7 +11,7 @@ from .make_rest_api_call import MakeRestApiCall
 def list_assets(config: dict, params: dict) -> dict:
     endpoint = "/products/list"  # edit endpoint
     method = "POST"  # GET/POST/PUT/DELETE
-    serial_number = params.get("serial_number") or "FG"
+    serial_number = params.get("serial_number")
     expire_before = params.get("expire_before")
 
     data = {

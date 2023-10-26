@@ -28,7 +28,7 @@ class MakeRestApiCall:
         if not self.server_url.startswith('http') or not self.server_url.startswith('https'):
             self.server_url = 'https://{0}/ES/api/registration/v3'.format(self.server_url)
         else:
-            self.server_url = url + '/ES/api/registration/v3'
+            self.server_url = self.server_url + '/ES/api/registration/v3'
         self.api_id = config.get("api_id")
         self.password = config.get("password")
         self.client_id = config.get("client_id")
