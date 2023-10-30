@@ -77,7 +77,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Register License",
+              "name": "Start -> Get Product Details",
               "targetStep": "/api/3/workflow_steps/58e1c687-bf52-4f2a-a8a4-292eca507d22",
               "sourceStep": "/api/3/workflow_steps/d8f7f3f9-b09e-4d17-967f-d24ef6b030e1",
               "label": null,
@@ -163,7 +163,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Register Service",
               "targetStep": "/api/3/workflow_steps/8fc18cd1-51bc-4176-aad0-a7eb9727db2b",
               "sourceStep": "/api/3/workflow_steps/8aea598a-1420-4d83-a16e-0db78e04c042",
               "label": null,
@@ -340,7 +340,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Register Product",
               "targetStep": "/api/3/workflow_steps/3c39df4f-c3a4-4312-b4a0-a465701d37b4",
               "sourceStep": "/api/3/workflow_steps/fcd957bc-ad6a-49c5-ab21-5f09a43aa31c",
               "label": null,
@@ -423,7 +423,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Decommisson Product",
               "targetStep": "/api/3/workflow_steps/0ebbc75e-cd30-4695-9713-0b8e09698980",
               "sourceStep": "/api/3/workflow_steps/e40bfa67-426a-4e76-a8f4-3df0584a7216",
               "label": null,
@@ -592,7 +592,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Generic API Call",
               "targetStep": "/api/3/workflow_steps/9e0a78ea-2f3b-4fb3-a537-669805db4779",
               "sourceStep": "/api/3/workflow_steps/23c19254-1ffe-4265-93e2-64c907415bd2",
               "label": null,
@@ -676,7 +676,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> Register License",
+              "name": "Start -> Update Product Description",
               "targetStep": "/api/3/workflow_steps/3c4a82c4-6c74-4c0e-b3fb-332bffffaa56",
               "sourceStep": "/api/3/workflow_steps/d4c27b48-d1b5-41f2-b5af-983260deebc6",
               "label": null,
@@ -759,7 +759,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Download License",
               "targetStep": "/api/3/workflow_steps/7ce5f57e-9076-42ef-a89c-7330ad0bc217",
               "sourceStep": "/api/3/workflow_steps/041854c0-4a59-48cd-9cd8-6c0e1d7e62dc",
               "label": null,
@@ -798,7 +798,7 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Register Product",
+              "name": "Update Location",
               "description": null,
               "arguments": {
                 "name": "FortiCloud Asset Management",
@@ -851,7 +851,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start -> List assets",
+              "name": "Start -> Update Location",
               "targetStep": "/api/3/workflow_steps/301a0a52-a013-41ba-bbaa-9d41bed76237",
               "sourceStep": "/api/3/workflow_steps/c69920f3-f5d2-46dd-ba87-39d0cf8e4078",
               "label": null,

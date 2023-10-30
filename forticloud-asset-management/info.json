@@ -122,7 +122,53 @@
           }
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "assets": [
+          {
+            "status": "",
+            "contracts": [
+              {
+                "sku": "",
+                "terms": [
+                  {
+                    "endDate": "",
+                    "startDate": "",
+                    "supportType": ""
+                  }
+                ],
+                "contractNumber": ""
+              }
+            ],
+            "assetGroups": [],
+            "description": "",
+            "entitlements": [
+              {
+                "type": "",
+                "level": "",
+                "endDate": "",
+                "typeDesc": "",
+                "levelDesc": "",
+                "startDate": ""
+              }
+            ],
+            "productModel": "",
+            "serialNumber": "",
+            "productModelEoR": "",
+            "productModelEoS": "",
+            "isDecommissioned": "",
+            "registrationDate": "",
+            "warrantySupports": ""
+          }
+        ],
+        "status": "",
+        "message": "",
+        "version": "",
+        "pageNumber": "",
+        "totalPages": ""
+      }
     },
     {
       "operation": "register_product",
@@ -163,9 +209,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "example: Backup device",
-          "description": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management.",
-          "tooltip": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management."
+          "tooltip": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management.",
+          "description": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management."
         },
         {
           "name": "asset_group_ids",
@@ -222,7 +267,56 @@
           "value": false
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "assets": [
+          {
+            "sku": "",
+            "status": "",
+            "message": "",
+            "folderId": "",
+            "location": "",
+            "contracts": "",
+            "folderPath": "",
+            "assetGroups": "",
+            "description": "",
+            "entitlements": [
+              {
+                "type": "",
+                "level": "",
+                "endDate": "",
+                "typeDesc": "",
+                "levelDesc": "",
+                "startDate": ""
+              }
+            ],
+            "productModel": "",
+            "serialNumber": "",
+            "contractTerms": [
+              {
+                "type": "",
+                "level": "",
+                "endDate": "",
+                "typeDesc": "",
+                "levelDesc": "",
+                "startDate": ""
+              }
+            ],
+            "additionalInfo": "",
+            "contractNumber": "",
+            "productModelEoR": "",
+            "productModelEoS": "",
+            "isDecommissioned": "",
+            "registrationDate": "",
+            "warrantySupports": ""
+          }
+        ],
+        "status": "",
+        "message": "",
+        "version": ""
+      }
     },
     {
       "operation": "update_description",
@@ -256,7 +350,14 @@
           "description": "Specify the description based on which you want to update description of a product in FortiCloud Asset Management."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "status": "",
+        "message": "",
+        "version": ""
+      }
     },
     {
       "operation": "product_details",
@@ -280,7 +381,70 @@
           "tooltip": "Specify the serial number based on which you want to retrieve product details from FortiCloud Asset Management."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "status": "",
+        "message": "",
+        "version": "",
+        "assetDetails": {
+          "license": {
+            "licenseSKU": "",
+            "licenseFile": "",
+            "licenseType": "",
+            "licenseNumber": "",
+            "experationDate": ""
+          },
+          "partner": "",
+          "folderId": "",
+          "location": {
+            "fax": "",
+            "city": "",
+            "email": "",
+            "phone": "",
+            "address": "",
+            "company": "",
+            "addressId": "",
+            "postalCode": "",
+            "countryCode": "",
+            "stateOrProvince": ""
+          },
+          "contracts": [
+            {
+              "sku": "",
+              "terms": [
+                {
+                  "endDate": "",
+                  "startDate": "",
+                  "supportType": ""
+                }
+              ],
+              "contractNumber": ""
+            }
+          ],
+          "folderPath": "",
+          "assetGroups": "",
+          "description": "",
+          "entitlements": [
+            {
+              "type": "",
+              "level": "",
+              "endDate": "",
+              "typeDesc": "",
+              "levelDesc": "",
+              "startDate": ""
+            }
+          ],
+          "productModel": "",
+          "serialNumber": "",
+          "productModelEoR": "",
+          "productModelEoS": "",
+          "isDecommissioned": "",
+          "registrationDate": "",
+          "warrantySupports": ""
+        }
+      }
     },
     {
       "operation": "update_location",
@@ -402,7 +566,14 @@
           "description": "Specify the fax number based on which you want to update location of a product in FortiCloud Asset Management."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "status": "",
+        "message": "",
+        "version": ""
+      }
     },
     {
       "operation": "decommission_product",
@@ -426,7 +597,14 @@
           "description": "Specify the list of serial numbers based on which you want to decommisse a product in FortiCloud Asset Management."
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "build": "",
+        "error": "",
+        "token": "",
+        "status": "",
+        "message": "",
+        "version": ""
+      }
     },
     {
       "operation": "register_license",
