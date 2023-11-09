@@ -9,7 +9,7 @@
   "category": "Asset Management",
   "icon_small_name": "asset_small.png",
   "icon_large_name": "asset.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/forticloud-asset-management/717/forticloud-asset-management-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -30,8 +30,8 @@
         "editable": true,
         "visible": true,
         "required": true,
-        "description": "Specify the API ID is the username for IAM user obtained from FortiCloud Asset Management. It is in UUID format, i.e XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-        "tooltip": "Specify the API ID is the username for IAM user obtained from FortiCloud Asset Management. It is in UUID format, i.e XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        "description": "Specify the API ID is the username for IAM user obtained from FortiCloud Asset Management. It is in UUID format, i.e XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.",
+        "tooltip": "Specify the API ID is the username for IAM user obtained from FortiCloud Asset Management. It is in UUID format, i.e XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX."
       },
       {
         "name": "password",
@@ -81,13 +81,13 @@
       "parameters": [
         {
           "title": "Fetch Based On",
-          "description": "Specify the option value using which you want to fetch assets retrieved by this operation.",
+          "description": "Select the option using which to fetch assets. You can select from the following options: Serial Number or Expire Before.",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "select",
           "name": "filter",
-          "tooltip": "Specify the option value using which you want to fetch assets retrieved by this operation.",
+          "tooltip": "Select the option using which to fetch assets. You can select from the following options: Serial Number or Expire Before.",
           "options": [
             "Serial Number",
             "Expire Before"
@@ -102,8 +102,8 @@
                 "visible": true,
                 "required": true,
                 "placeholder": "For example: FGT90D1234567890",
-                "tooltip": "Specify the serial number based on which you want to retrieve products from FortiCloud Asset Management, For example: FGT90D1234567890. Note: * for wildcard search.",
-                "description": "Specify the serial number based on which you want to retrieve products from FortiCloud Asset Management."
+                "tooltip": "Specify the serial number, in the Serial Number field, based on which you want to retrieve products from FortiCloud Asset Management.",
+                "description": "Specify the serial number, in the Serial Number field, based on which you want to retrieve products from FortiCloud Asset Management."
               }
             ],
             "Expire Before": [
@@ -115,8 +115,8 @@
                 "visible": true,
                 "required": true,
                 "placeholder": "For example: 2019-01-20T10:11:11-8:00",
-                "description": "Specify the DateTime using which you want to filter the result set to only include only those items that have been expire before the specified timestamp.",
-                "tooltip": "Specify the DateTime using which you want to filter the result set to only include only those items that have been expire before the specified timestamp."
+                "description": "Specify the date and time, in the Expire Before field, using which to filter the results that include only those items that have expired before the specified timestamp.",
+                "tooltip": "Specify the date and time, in the Expire Before field, using which to filter the results that include only those items that have expired before the specified timestamp."
               }
             ]
           }
@@ -174,7 +174,7 @@
       "operation": "register_product",
       "title": "Register Product",
       "annotation": "register_product",
-      "description": "Register products/contracts in one request in FortiCloud Asset Management based on serial number and other input parameters you have specified.",
+      "description": "Register products/contracts in one request to FortiCloud Asset Management based on the serial number, Contract Number, and other input parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -188,8 +188,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: FGT90D1234567890",
-          "tooltip": "Specify the serial number based on which you want to register product in FortiCloud Asset Management, For example: FGT90D1234567890. Note: * for wildcard search.",
-          "description": "Specify the serial number based on which you want to register product in FortiCloud Asset Management."
+          "tooltip": "Specify the serial number of the product to register in FortiCloud Asset Management. For example: FGT90D1234567890. Note: * for wildcard search.",
+          "description": "Specify the serial number of the product to register in FortiCloud Asset Management."
         },
         {
           "name": "contract_number",
@@ -199,8 +199,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: 2121DJ8902",
-          "tooltip": "Specify the contract number to register contract with product in FortiCloud Asset Management. For example: 2121DJ8902",
-          "description": "Specify the contract number to register contract with product in FortiCloud Asset Management."
+          "tooltip": "Specify the contract number of the product to register in FortiCloud Asset Management. For example: 2121DJ8902",
+          "description": "Specify the contract number of the product to register in FortiCloud Asset Management."
         },
         {
           "name": "description",
@@ -209,8 +209,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management.",
-          "description": "Specify the brief product description during registration process based on which you want to register product in FortiCloud Asset Management."
+          "tooltip": "Specify a brief product description of the product to register in FortiCloud Asset Management.",
+          "description": "Specify a brief product description of the product to register in FortiCloud Asset Management."
         },
         {
           "name": "asset_group_ids",
@@ -219,8 +219,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the list of asset group IDs to register product under certain asset group in FortiCloud Asset Management. For example: [6,12,18]",
-          "description": "Specify the list of asset group IDs to register product under certain asset group in FortiCloud Asset Management. For example: [6,12,18]."
+          "tooltip": "Specify a list of asset group IDs, as an array, under which to register the product in FortiCloud Asset Management. For example: [6,12,18].",
+          "description": "Specify a list of asset group IDs, as an array, under which to register the product in FortiCloud Asset Management. For example: [6,12,18]."
         },
         {
           "name": "replaced_serial_number",
@@ -230,8 +230,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: FGT90D9876543210",
-          "tooltip": "Specify the serial number which is used for product RMA registration for replaced product serial number in FortiCloud Asset Management.",
-          "description": "Specify the serial number which is used for product RMA registration for replaced product serial number in FortiCloud Asset Management."
+          "tooltip": "Specify the serial number which was used for product RMA registration to replace it in FortiCloud Asset Management.",
+          "description": "Specify the serial number which was used for product RMA registration to replace it in FortiCloud Asset Management."
         },
         {
           "name": "additional_info",
@@ -262,8 +262,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specifies whether the product will be used for government or not. By default, it set to be False.",
-          "description": "Specifies whether the product will be used for government or not. By default, it set to be False.",
+          "tooltip": "Select this option if the product is for a government organization. By default, it unchecked, i.e., set to False.",
+          "description": "Select this option if the product is for a government organization. By default, it unchecked, i.e., set to False.",
           "value": false
         }
       ],
@@ -336,8 +336,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: FGT90D1234567890",
-          "tooltip": "Specify the serial number based on which you want to update description of a product in FortiCloud Asset Management. For example: FGT90D1234567890.",
-          "description": "Specify the serial number based on which you want to update description of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the serial number of the product whose description is to be updated in FortiCloud Asset Management. For example: FGT90D1234567890.",
+          "description": "Specify the serial number of the product whose description is to be updated in FortiCloud Asset Management."
         },
         {
           "name": "description",
@@ -346,8 +346,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the description based on which you want to update description of a product in FortiCloud Asset Management.",
-          "description": "Specify the description based on which you want to update description of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the description to be updated in FortiCloud Asset Management.",
+          "description": "Specify the description to be updated in FortiCloud Asset Management."
         }
       ],
       "output_schema": {
@@ -363,7 +363,7 @@
       "operation": "product_details",
       "title": "Get Product Details",
       "annotation": "product_details",
-      "description": "Retrieves the product detailed information, including active support coverage and associated licenses from FortiCloud Asset Management based on the serial number you have specified.",
+      "description": "Retrieves the detailed product information, including active support coverage and associated licenses, from FortiCloud Asset Management based on the serial number you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -378,7 +378,7 @@
           "required": true,
           "placeholder": "For example: FGT90D1234567890",
           "description": "Specify the serial number based on which you want to retrieve product details from FortiCloud Asset Management. For example: FGT90D1234567890.",
-          "tooltip": "Specify the serial number based on which you want to retrieve product details from FortiCloud Asset Management."
+          "tooltip": "Specify the serial number based on which you want to retrieve product details from FortiCloud Asset Management. For example: FGT90D1234567890."
         }
       ],
       "output_schema": {
@@ -450,7 +450,7 @@
       "operation": "update_location",
       "title": "Update Location",
       "annotation": "update_location",
-      "description": "Updates a location of a product in FortiCloud Asset Management based on the serial number and other input parameters you have specified.",
+      "description": "Updates a location of a product in FortiCloud Asset Management based on the serial number, address, city, and other input parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -464,8 +464,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: FGT90D1234567890",
-          "tooltip": "Specify the serial number based on which you want to update location of a product in FortiCloud Asset Management. For example: FGT90D1234567890",
-          "description": "Specify the serial number based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the serial number of the product whose location is to be updated in FortiCloud Asset Management. For example: FGT90D1234567890",
+          "description": "Specify the serial number of the product whose location is to be updated in FortiCloud Asset Management."
         },
         {
           "name": "address",
@@ -475,8 +475,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: 1234 Wall Street",
-          "tooltip": "Specify the address of the location based on which you want to update location of a product in FortiCloud Asset Management.",
-          "description": "Specify the address of the location based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the address of the location to update in FortiCloud Asset Management.",
+          "description": "Specify the address of the location to update in FortiCloud Asset Management."
         },
         {
           "name": "city",
@@ -486,8 +486,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: Sunnyvale",
-          "tooltip": "Specify the name of the city based on which you want to update location of a product in FortiCloud Asset Management.",
-          "description": "Specify the name of the city based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the city within which the location lies to update in FortiCloud Asset Management.",
+          "description": "Specify the city within which the location lies to update in FortiCloud Asset Management."
         },
         {
           "name": "stateOrProvince",
@@ -497,8 +497,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: CA",
-          "tooltip": "Specify the state or province name based on which you want to update location of a product in FortiCloud Asset Management.",
-          "description": "Specify the state or province name based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the state within which the location lies to update in FortiCloud Asset Management.",
+          "description": "Specify the state within which the location lies to update in FortiCloud Asset Management."
         },
         {
           "name": "countryCode",
@@ -507,8 +507,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "description": "Specify the two letter country code based on which you want to update location of a product in FortiCloud Asset Management.",
-          "tooltip": "Specify the two letter country code based on which you want to update location of a product in FortiCloud Asset Management."
+          "description": "Specify the two letter country code within which the location lies to update in FortiCloud Asset Management.",
+          "tooltip": "Specify the two letter country code within which the location lies to update in FortiCloud Asset Management."
         },
         {
           "name": "postalCode",
@@ -518,8 +518,8 @@
           "visible": true,
           "required": true,
           "placeholder": 34510,
-          "description": "Specify the zip/postal code of the location based on which you want to update location of a product in FortiCloud Asset Management.",
-          "tooltip": "Specify the zip/postal code of the location based on which you want to update location of a product in FortiCloud Asset Management."
+          "description": "Specify the zip/postal code within which the location lies to update in FortiCloud Asset Management.",
+          "tooltip": "Specify the zip/postal code within which the location lies to update in FortiCloud Asset Management."
         },
         {
           "name": "company",
@@ -529,8 +529,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: Test Company Inc",
-          "tooltip": "Specify the name of the company based on which you want to update location of a product in FortiCloud Asset Management.",
-          "description": "Specify the name of the company based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the name of the company associated with location to update in FortiCloud Asset Management.",
+          "description": "Specify the name of the company associated with location to update in FortiCloud Asset Management."
         },
         {
           "name": "email",
@@ -540,8 +540,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: test@testcompany.com",
-          "tooltip": "Specify the email address based on which you want to update location of a product in FortiCloud Asset Management. For example: test@testcompany.com",
-          "description": "Specify the email address based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the email address associated with location to update in FortiCloud Asset Management. For example: test@testcompany.com",
+          "description": "Specify the email address associated with location to update in FortiCloud Asset Management."
         },
         {
           "name": "phone",
@@ -551,8 +551,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: +13151231234",
-          "tooltip": "Specify the phone number based on which you want to update location of a product in FortiCloud Asset Management. Note: Phone must follow this format (without brackets): \"+(country code)(space)(number)\"",
-          "description": "Specify the phone number based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the phone number associated with location to update in FortiCloud Asset Management. Note: Phone must follow this format (without brackets): \"+(country code)(space)(number)\"",
+          "description": "Specify the phone number associated with location to update in FortiCloud Asset Management."
         },
         {
           "name": "fax",
@@ -562,8 +562,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: +1 3151231235",
-          "tooltip": "Specify the fax number based on which you want to update location of a product in FortiCloud Asset Management. Note: Fax must follow this format (without brackets): \"+(country code)(space)(number)\"",
-          "description": "Specify the fax number based on which you want to update location of a product in FortiCloud Asset Management."
+          "tooltip": "Specify the fax number associated with location to update in FortiCloud Asset Management. Note: Fax must follow this format (without brackets): \"+(country code)(space)(number)\"",
+          "description": "Specify the fax number associated with location to update in FortiCloud Asset Management."
         }
       ],
       "output_schema": {
@@ -579,7 +579,7 @@
       "operation": "decommission_product",
       "title": "Decommission Product",
       "annotation": "decommission_product",
-      "description": "Decommission one or more products in FortiCloud Asset Management based on the serial number you have specified.",
+      "description": "Decommission one or more products in FortiCloud Asset Management based on comma-separated serial numbers you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -593,8 +593,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: [\"FGTXXX\", \"FGTXXX\"] or \"FGTXXX\", \"FGTXXX\"",
-          "tooltip": "Specify the list of serial numbers based on which you want to decommisse a product in FortiCloud Asset Management. For example: [\"FGTXXX\", \"FGTXXX\"] or \"FGTXXX\", \"FGTXXX\" ",
-          "description": "Specify the list of serial numbers based on which you want to decommisse a product in FortiCloud Asset Management."
+          "tooltip": "Specify the list of product serial numbers, as an array, associated with the products to decommission in FortiCloud Asset Management. For example: [\"FGTXXX\", \"FGTXXX\"] or \"FGTXXX\", \"FGTXXX\" ",
+          "description": "Specify the list of product serial numbers, as an array, associated with the products to decommission in FortiCloud Asset Management."
         }
       ],
       "output_schema": {
@@ -624,8 +624,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: K06V2-U795H-9PKR7-2TXNM-V8GL6B",
-          "description": "Specify the license registration code based on which you want to register license in FortiCloud Asset Management.",
-          "tooltip": "Specify the license registration code based on which you want to register license in FortiCloud Asset Management. For example: K06V2-U795H-9PKR7-2TXNM-V8GL6B"
+          "description": "Specify the license registration code to register the product license in FortiCloud Asset Management.",
+          "tooltip": "Specify the license registration code to register the product license in FortiCloud Asset Management. For example: K06V2-U795H-9PKR7-2TXNM-V8GL6B"
         },
         {
           "name": "serial_number",
@@ -634,8 +634,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the serial number based on which you want to register license in FortiCloud Asset Management. Note: If this field is not empty, the license will be registered under it, otherwise a virtual product will be created for the registered license (if applicable).",
-          "description": "Specify the serial number based on which you want to register license in FortiCloud Asset Management. Note: If this field is not empty, the license will be registered under it, otherwise a virtual product will be created for the registered license (if applicable)."
+          "tooltip": "Specify the product serial number under which to register the license in FortiCloud Asset Management. NOTE: If this field is empty a virtual product is created to register the license.",
+          "description": "Specify the product serial number under which to register the license in FortiCloud Asset Management. NOTE: If this field is empty a virtual product is created to register the license."
         },
         {
           "name": "description",
@@ -644,8 +644,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the brief description based on which you want to register license in FortiCloud Asset Management.",
-          "description": "Specify the brief description based on which you want to register license in FortiCloud Asset Management."
+          "tooltip": "Specify a brief description to register the license in FortiCloud Asset Management.",
+          "description": "Specify a brief description to register the license in FortiCloud Asset Management."
         },
         {
           "name": "additional_info",
@@ -655,8 +655,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: 121.24.56.198",
-          "tooltip": "Specify the additional information for certain license registration to store in FortiCloud Asset Management. For example system ID, IP address, etc.",
-          "description": "Specify the additional information for certain license registration to store in FortiCloud Asset Management."
+          "tooltip": "Specify additional information for the license registration to store in FortiCloud Asset Management. For example system ID, IP address, etc.",
+          "description": "Specify additional information for the license registration to store in FortiCloud Asset Management."
         },
         {
           "name": "is_government",
@@ -666,8 +666,8 @@
           "visible": true,
           "required": false,
           "value": false,
-          "tooltip": "Specifies whether the product will be used for government or not. By default, it set to be False.",
-          "description": "Specifies whether the product will be used for government or not. By default, it set to be False."
+          "tooltip": "Select this option if the license is for a government organization. By default, it unchecked, i.e., set to False.",
+          "description": "Select this option if the license is for a government organization. By default, it unchecked, i.e., set to False."
         }
       ],
       "output_schema": {}
@@ -690,8 +690,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: FGT90D1234567890",
-          "tooltip": "Specify the serial number based on which you want to download license key file from FortiCloud Asset Management. For example: FGT90D1234567890",
-          "description": "Specify the serial number based on which you want to download license key file from FortiCloud Asset Management."
+          "tooltip": "Specify the serial number of the product to download its associated license key file from FortiCloud Asset Management. For example: FGT90D1234567890",
+          "description": "Specify the serial number of the product to download its associated license key file from FortiCloud Asset Management."
         }
       ],
       "output_schema": {}
@@ -700,7 +700,7 @@
       "operation": "generic_api_call",
       "title": "Generic API Call",
       "annotation": "generic_api_call",
-      "description": "Allows querying a generic API endpoint in FortiCloud Asset Management based on the endpoint and method you have specified.",
+      "description": "Allows querying a generic API endpoint in FortiCloud Asset Management based on the endpoint and the HTTP method for the API call that you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -714,7 +714,7 @@
           "visible": true,
           "required": true,
           "value": "GET",
-          "description": "Select the HTTP method to be used for the API call. You can choose between POST, GET, PUT, PATCH, or DELETE.",
+          "description": "Select the HTTP method to be used for the API call. You can choose between following options: POST, GET, PUT, PATCH, or DELETE.",
           "options": [
             "DELETE",
             "GET",
@@ -730,8 +730,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Provide the endpoint for the action, ie /products/list,  /products/register etc. The full list of available actions are accessible from FNDN at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product",
-          "description": "Provide the endpoint for the action, ie /products/list,  /products/register etc. The full list of available actions are accessible from FNDN at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product"
+          "tooltip": "Specify the endpoint for the action. For example: /products/list, or /products/register. The full list of available actions are accessible at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product.",
+          "description": "Specify the endpoint for the action. For example: /products/list, or /products/register. The full list of available actions are accessible at https://fndn.fortinet.net/index.php?/fortiapi/55-asset-management-formerly-forticare-registration/2212/55/Product."
         },
         {
           "name": "payload",
@@ -742,8 +742,8 @@
           "required": false,
           "placeholder": {},
           "value": {},
-          "tooltip": "Specify the request payload that you want to send with the API call request. Use empty brackets if there is no payload.",
-          "description": "Specify the request payload that you want to send with the API call request. Use empty brackets if there is no payload."
+          "tooltip": "Specify the request payload that you want to send with the API call request. Use empty brackets ([]) if there is no payload.",
+          "description": "Specify the request payload that you want to send with the API call request. Use empty brackets ([]) if there is no payload."
         }
       ],
       "output_schema": {}
@@ -766,8 +766,8 @@
           "visible": true,
           "required": true,
           "placeholder": "For example: 2121DJ8902",
-          "tooltip": "Specify the contract number based on which you want to register service in FortiCloud Asset Management. For example: 2121DJ8902",
-          "description": "Specify the contract number based on which you want to register service in FortiCloud Asset Management."
+          "tooltip": "Specify the contract number associated with the product to register the service in FortiCloud Asset Management. For example: 2121DJ8902",
+          "description": "Specify the contract number associated with the product to register the service in FortiCloud Asset Management."
         },
         {
           "name": "description",
@@ -776,8 +776,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the brief description based on which you want to register service in FortiCloud Asset Management.",
-          "description": "Specify the brief description based on which you want to register service in FortiCloud Asset Management."
+          "tooltip": "Specify the brief description to register the service in FortiCloud Asset Management.",
+          "description": "Specify the brief description to register the service in FortiCloud Asset Management."
         },
         {
           "name": "additional_info",
@@ -787,8 +787,8 @@
           "visible": true,
           "required": false,
           "placeholder": "For example: 121.24.56.198",
-          "tooltip": "Specify the additional information for certain service registration to store in FortiCloud Asset Management. For example system ID, IP address, etc.",
-          "description": "Specify the additional information for certain service registration to store in FortiCloud Asset Management"
+          "tooltip": "Specify the additional information for the service registration to be stored in FortiCloud Asset Management. For example system ID, IP address, etc.",
+          "description": "Specify the additional information for the service registration to be stored in FortiCloud Asset Management."
         },
         {
           "name": "is_government",
@@ -798,8 +798,8 @@
           "visible": true,
           "required": false,
           "value": false,
-          "tooltip": "Specifies whether the product will be used for government or not. By default, it set to be False.",
-          "description": "Specifies whether the product will be used for government or not. By default, it set to be False."
+          "tooltip": "Select this option if the service is for a government organization. By default, it unchecked, i.e., set to False.",
+          "description": "Select this option if the service is for a government organization. By default, it unchecked, i.e., set to False."
         }
       ],
       "output_schema": {}
